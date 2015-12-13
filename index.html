@@ -6,8 +6,47 @@
 <script src="js/jquery-2.1.4.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <title>Sample Project</title>
+<style>
+canvas#viewport { border: 1px solid white; width: 800px; height: 600px; }
+</style>
+
+
 </head>
 
+
 <body>
+	<canvas id="viewport"> 	</canvas>
+
+<script>
+
+
+var canvas = document.getElementById('viewport'),
+context = canvas.getContext('2d');
+
+
+var imgData=context.getImageData(0,0,4,4);
+
+make_image();
+
+
+
+function make_image()
+{
+  imagem1 = new Image();
+  imagem1.src = 'imgs/imagem1.png';
+  imagem1.onload = function(){
+  context.drawImage(imagem1, 0, 0);
+  console.log(imgData);
+    console.log(imgData[0]);
+  }
+  console.log("clicou");
+}
+
+</script>	
+<button onclick="make_image();">Clique</button>
 </body>
+
+
+
+
 </html>
